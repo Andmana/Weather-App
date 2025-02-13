@@ -68,11 +68,11 @@ h6 {
 /***************/
 
 :root {
-    --text--text-main: #e4e4e7;
+    --text-main: black;
     --text-secondary: #b3b3b3;
     --background-main: #171717;
     --background-secondary: #212121;
-    --background-input: #373737;
+    --background-input: rgba(255, 255, 255, 0.668);
 }
 
 body {
@@ -81,6 +81,17 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+}
+
+input,
+button {
+    all: unset;
+    box-sizing: border-box;
+    outline: none;
+}
+
+button {
+    cursor: pointer;
 }
 
 .app {
@@ -95,9 +106,76 @@ body {
     flex-grow: 1;
 }
 
-.header,
-.footer {
-    height: 50px;
+.header {
+    height: 70px;
+    padding: 10px 30px;
+
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.hero {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    color: skyblue;
+}
+.hero-icon {
+    width: 40px;
+    height: 40px;
+}
+.hero h1 {
+    letter-spacing: -5px;
+}
+
+.form-group {
+    width: 500px;
+    height: 40px;
+    padding: 5px 15px;
+    border-radius: 20px;
+    background-color: var(--background-input);
+    display: flex;
+}
+
+.form-group input {
+    height: 100%;
+    flex-grow: 1;
+    opacity: 1;
+    color: var(-text-main);
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+}
+
+.nav {
+    display: flex;
+    gap: 10px;
+    position: relative;
+}
+
+.nav button {
+    background-color: white;
+    padding: 8px 10px 5px;
+    border-radius: 40px;
+    border: 3px solid skyblue;
+}
+
+.nav button {
+    position: relative;
+}
+
+.nav button {
+    background-image: linear-gradient(to right, skyblue, lightblue);
+    background-repeat: no-repeat;
+    background-size: 0% 100%; /* Initially hides the gradient */
+    background-position-x: right;
+    transition: background-size 500ms; /* Transition both size and position */
+}
+
+.nav button:hover {
+    background-size: 100% 100%; /* Expands the gradient to cover the whole button */
+    background-position-x: left;
 }
