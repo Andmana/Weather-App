@@ -6,16 +6,16 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 * {
-  margin: 0;
+    margin: 0;
 }
 
 body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
 }
 
 img,
@@ -23,15 +23,15 @@ picture,
 video,
 canvas,
 svg {
-  display: block;
-  max-width: 100%;
+    display: block;
+    max-width: 100%;
 }
 
 input,
 button,
 textarea,
 select {
-  font: inherit;
+    font: inherit;
 }
 
 p,
@@ -41,11 +41,11 @@ h3,
 h4,
 h5,
 h6 {
-  overflow-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 p {
-  text-wrap: pretty;
+    text-wrap: pretty;
 }
 h1,
 h2,
@@ -53,10 +53,51 @@ h3,
 h4,
 h5,
 h6 {
-  text-wrap: balance;
+    text-wrap: balance;
 }
 
 #root,
 #__next {
-  isolation: isolate;
+    isolation: isolate;
+}
+
+/***************/
+/*             */
+/*   MY CODE   */
+/*             */
+/***************/
+
+:root {
+    --text--text-main: #e4e4e7;
+    --text-secondary: #b3b3b3;
+    --background-main: #171717;
+    --background-secondary: #212121;
+    --background-input: #373737;
+}
+
+body {
+    background-color: black;
+    background-image: url("/images/bg-1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.app {
+    min-height: 100svh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main {
+    flex-grow: 1;
+}
+
+.header,
+.footer {
+    height: 50px;
+    display: flex;
+    justify-content: center;
 }
