@@ -84,10 +84,18 @@ body {
 }
 
 input,
-button {
+button,
+ul {
     all: unset;
     box-sizing: border-box;
     outline: none;
+}
+
+li,
+ul {
+    list-style: none; /* Remove bullets or numbering */
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
 }
 
 button {
@@ -136,6 +144,7 @@ button {
     border-radius: 20px;
     background-color: var(--background-input);
     display: flex;
+    position: relative;
 }
 
 .form-group input {
@@ -145,18 +154,58 @@ button {
     color: var(-text-main);
 }
 
+.options-container {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    opacity: 1;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    box-sizing: content-box;
+
+    width: 100%;
+    max-height: 350px;
+    padding: 20px 0px 10px;
+    border-radius: 20px;
+    background-color: var(--background-input);
+}
+
+.hide {
+    opacity: 0;
+}
+
+.options-container li {
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.322);
+    border-left: 0 solid transparent; /* Initial state of border-left */
+    transition: border-left 0.4s ease, background-color 0.4s ease; /* Transition for border-left and background-color */
+}
+
+.options-container li:hover {
+    border-left: 10px solid skyblue;
+    background-color: rgba(255, 255, 255, 0.756);
+}
+
+.input-option {
+    width: 100%;
+    height: 100%;
+    padding: 10px 0 10px 20px;
+}
+
 .icon {
     width: 30px;
     height: 30px;
 }
 
 .nav {
-    display: flex;
-    gap: 10px;
-    position: relative;
+    width: 200px;
+    /* display: flex; */
+    /* gap: 10px; */
+    /* position: relative; */
 }
 
-.nav button {
+/* .nav button {
     background-color: white;
     padding: 8px 10px 5px;
     border-radius: 40px;
@@ -165,7 +214,7 @@ button {
 
 .nav button {
     position: relative;
-}
+} */
 
 .nav button {
     background-image: linear-gradient(to right, skyblue, lightblue);
@@ -175,7 +224,25 @@ button {
     transition: background-size 500ms; /* Transition both size and position */
 }
 
-.nav button:hover {
-    background-size: 100% 100%; /* Expands the gradient to cover the whole button */
-    background-position-x: left;
+/* Styling for the custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(128, 128, 128, 0.626);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: skyblue;
+    width: 12px;
+}
+
+/* Optional: Increase scrollbar width on hover */
+::-webkit-scrollbar:hover {
+    width: 12px;
 }
