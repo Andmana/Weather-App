@@ -294,6 +294,45 @@ button {
     gap: 20px;
 }
 
+#temperature div div {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    grid-template-columns: 20px 40px;
+    grid-template-rows: 20px;
+}
+
+.up {
+    animation: arrow 1s infinite;
+}
+
+.down {
+    animation: arrow2 1s infinite;
+}
+
+@keyframes arrow {
+    0% {
+        transform: translateY(0); /* Start position */
+        opacity: 1; /* Fully visible */
+    }
+    100% {
+        transform: translateY(-3px); /* Moves up 100px */
+        opacity: 0; /* Fade out */
+    }
+}
+
+@keyframes arrow2 {
+    0% {
+        transform: translateY(0); /* Start position */
+        opacity: 1; /* Fully visible */
+    }
+    100% {
+        transform: translateY(3px); /* Moves up 100px */
+        opacity: 0; /* Fade out */
+    }
+}
+
 #description img {
     width: 150px;
     margin: auto;
