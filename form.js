@@ -7,10 +7,12 @@ const form = document.querySelector("form");
 
 export const attachFormEvents = async () => {
     input.addEventListener("input", handleInput);
+    input.addEventListener("focus", handleInput);
     form.addEventListener("submit", handleForm);
 
     window.addEventListener("click", (event) => {
-        if (!input.contains(event.target) && !optionContainer.contains(event.target)) {
+        // if (!input.contains(event.target) && !optionContainer.contains(event.target)) {
+        if (!input.contains(event.target) && event.target !== optionContainer) {
             optionContainer.classList.add("hide");
         }
     });

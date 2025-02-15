@@ -4,7 +4,7 @@ export async function getLocationOptions(query = "lon") {
             `https://geocoding-api.open-meteo.com/v1/search?name=${query}&count=10&language=en&format=json`
         );
         const dataObj = await response.json();
-        const data = await dataObj.results.map((obj) => ({
+        const data = dataObj.results.map((obj) => ({
             name: obj.name,
             country: obj.country,
             latitude: obj.latitude,
