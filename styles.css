@@ -69,7 +69,7 @@ h6 {
 
 :root {
     --text-main: black;
-    --text-secondary: #b3b3b3;
+    --text-secondary: rgba(0, 0, 0, 0.438);
     --background-main: #171717;
     --background-secondary: #212121;
     --background-input: rgba(255, 255, 255, 0.668);
@@ -81,6 +81,10 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+}
+
+span {
+    display: block;
 }
 
 input,
@@ -110,19 +114,17 @@ button {
     justify-content: center;
 }
 
-.main {
-    flex-grow: 1;
-}
-
 .header {
     height: 70px;
     padding: 10px 30px;
+    margin-bottom: 50px;
 
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
+
 .hero {
     width: 200px;
     display: flex;
@@ -137,8 +139,20 @@ button {
     letter-spacing: -5px;
 }
 
+.search {
+    flex: 1;
+}
+
+.search form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .form-group {
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
     height: 40px;
     padding: 5px 15px;
     border-radius: 20px;
@@ -226,6 +240,83 @@ button {
     background-size: 0% 100%;
     background-position-x: right;
     transition: background-size 500ms;
+}
+
+/***************/
+/*             */
+/*     Main    */
+/*             */
+/***************/
+.main {
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#current-weather {
+    background-color: rgba(255, 255, 255, 0.332);
+    padding: 20px 2vw;
+    border-radius: 20px;
+    text-align: center;
+}
+
+#current-weather span {
+    font-size: 14px;
+}
+
+#weather {
+    display: flex;
+    gap: 5vw;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap-reverse;
+    margin-bottom: 50px;
+}
+
+#weather > div {
+    flex: 1;
+    flex-basis: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: stretch;
+}
+
+#temperature h1 {
+    font-size: clamp(50px, 8vw, 80px);
+}
+
+#temperature div {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#description img {
+    width: 150px;
+    margin: auto;
+}
+
+#detail {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#detail div {
+    display: grid;
+    text-align: start;
+    column-gap: 10px;
+    grid-template-columns: 50px 100px;
+    grid-template-rows: 25px;
+}
+
+#detail div img {
+    width: 100%;
+    grid-area: 1 / 1 / 3 / 1;
 }
 
 ::-webkit-scrollbar {
