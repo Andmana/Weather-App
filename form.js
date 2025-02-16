@@ -75,9 +75,10 @@ const loadWeatherContent = async (latitude, longitude, location) => {
     const mainContainer = document.querySelector(".main");
     mainContainer.innerHTML = `<div class="loader"></div>`;
 
-    mainContainer.innerHTML = "";
-
     const weatherObj = await getWeatherForcasts(latitude, longitude);
+
+    changeImgStyle(weatherObj.is_day);
+
     mainContainer.innerHTML = `
     <div id="current-weather">
         <h2 id="location">${location}</h2>
@@ -116,3 +117,13 @@ const loadWeatherContent = async (latitude, longitude, location) => {
     </div>
     `;
 };
+
+function changeImgStyle(is_day) {
+    const logo = document.querySelector(".hero img");
+    const hero = document.querySelector(".hero");
+
+    logo.src = is_day ? "images/sun.svg" : "images/moon.svg";
+    hero.style.color = is_day ? "skyblue" : "#ffd27d";
+
+    document.body.style.backgroundImage = `url("images/bg-${is_day}.jpg")`;
+}

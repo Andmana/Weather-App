@@ -131,6 +131,7 @@ button {
     align-items: center;
     color: skyblue;
 }
+
 .hero-icon {
     width: 40px;
     height: 40px;
@@ -276,7 +277,7 @@ button {
 
 #weather {
     display: flex;
-    gap: 5vw;
+    gap: 2vw;
     align-items: stretch;
     justify-content: center;
     flex-wrap: wrap-reverse;
