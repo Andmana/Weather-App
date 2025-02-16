@@ -79,8 +79,8 @@ const loadWeatherContent = async (latitude, longitude) => {
                 <h1>${weatherObj.temperature} °C</h1>
             </div>
             <div id="description">
-                <img id="weather-icon" src="images/cloudy.svg" alt="" />
-                <h3>Cloudy</h3>
+                <img id="weather-icon" src="${weatherObj.image}" alt="" />
+                <h3>${weatherObj.description}</h3>
             </div>
         </div>
         <div id="detail">
