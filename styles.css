@@ -406,3 +406,10 @@ button {
         transform: rotate(360deg);
     }
 }
+
+@media (max-width: 768px) {
+    /* Your CSS rules here */
+    .app {
+        min-height: 100 svh;
+    }
+}
