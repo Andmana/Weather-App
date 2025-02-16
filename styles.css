@@ -195,7 +195,7 @@ button {
 
 .options-container li {
     margin-bottom: 20px;
-    background-color: rgba(255, 255, 255, 0.322);
+    background-color: rgb(255, 255, 255);
     border-left: 0 solid transparent; /* Initial state of border-left */
     transition: border-left 0.4s ease, background-color 0.4s ease; /* Transition for border-left and background-color */
 }
@@ -203,6 +203,14 @@ button {
 .options-container li:hover {
     border-left: 10px solid skyblue;
     background-color: rgba(255, 255, 255, 0.756);
+}
+
+.options-container .error {
+    margin-bottom: 20px;
+    background-color: white;
+    color: red;
+    text-align: center;
+    padding: 10px;
 }
 
 .input-option {

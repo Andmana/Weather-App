@@ -1,4 +1,5 @@
 import { getLocationOptions } from "./apiHandler.js";
+import { getGeoLocations, getWeatherForcasts } from "./apiHandler.js";
 
 const input = document.querySelector("input");
 const searchBtn = document.querySelector("#search-btn");
