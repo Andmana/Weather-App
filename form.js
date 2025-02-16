@@ -85,22 +85,22 @@ const loadWeatherContent = async (latitude, longitude) => {
         </div>
         <div id="detail">
             <div>
-                <img src="images/cloudy.svg" alt="" />
+                <img src="images/temperature.svg" alt="" />
                 <span>Feels Like</span>
                 <p>${weatherObj.apparent_temperature} °C</p>
             </div>
             <div>
-                <img src="images/rainy.svg" alt="" />
+                <img src="images/rain.svg" alt="" />
                 <span>Chance of rain</span>
                 <p>${weatherObj.chance_of_rain} %</p>
             </div>
             <div>
-                <img src="images/cloudy.svg" alt="" />
+                <img src="images/humidity.svg" alt="" />
                 <span>Humidity</span>
                 <p>${weatherObj.humidity} %</p>
             </div>
             <div>
-                <img src="images/cloudy.svg" alt="" />
+                <img src="images/wind.svg" alt="" />
                 <span>Wind Speed</span>
                 <p>${weatherObj.wind_speed} km/h</p>
             </div>
