@@ -8,7 +8,7 @@ const form = document.querySelector("form");
 
 export const attachFormEvents = async () => {
     input.addEventListener("input", handleInput);
-    input.addEventListener("focus", handleInput);
+    // input.addEventListener("focus", handleInput);
     form.addEventListener("submit", handleForm);
 
     window.addEventListener("click", (event) => {
@@ -19,7 +19,7 @@ export const attachFormEvents = async () => {
     });
 };
 
-const debounce = (callback, delay = 500) => {
+const debounce = (callback, delay = 400) => {
     let timeout;
     return (...args) => {
         clearTimeout(timeout);
@@ -28,10 +28,9 @@ const debounce = (callback, delay = 500) => {
 };
 
 const handleInput = debounce(async () => {
+    optionContainer.className = "options-container";
+    optionContainer.innerHTML = `<div class="loader"></div>`;
     if (input.value.length >= 3) {
-        optionContainer.className = "options-container";
-        optionContainer.innerHTML = `<div class="loader"></div>`;
-
         const options = await getGeoLocations(input.value);
         if (options.length > 0) {
             optionContainer.innerHTML = options
@@ -40,7 +39,8 @@ const handleInput = debounce(async () => {
                 <li>
                 <button type="submit" class="input-option"
                 data-latitude="${option.latitude}"
-                data-longitude="${option.longitude}">
+                data-longitude="${option.longitude}"
+                data-location="${option.name}, ${option.admin}, ${option.country}">
                 ${option.name}, ${option.admin}, ${option.country}
                 </button>
                 </li>`
@@ -61,18 +61,26 @@ const handleForm = (event) => {
     //set update searchButton
     searchBtn.dataset.latitude = triggerBtn.dataset.latitude;
     searchBtn.dataset.longitude = triggerBtn.dataset.longitude;
-    input.value = triggerBtn.textContent.trim();
-    loadWeatherContent(triggerBtn.dataset.latitude, triggerBtn.dataset.longitude);
+    searchBtn.dataset.location = triggerBtn.dataset.location;
+    input.value = triggerBtn.dataset.location;
+
+    loadWeatherContent(
+        triggerBtn.dataset.latitude,
+        triggerBtn.dataset.longitude,
+        triggerBtn.dataset.location
+    );
 };
 
-const loadWeatherContent = async (latitude, longitude) => {
+const loadWeatherContent = async (latitude, longitude, location) => {
     const mainContainer = document.querySelector(".main");
+    mainContainer.innerHTML = `<div class="loader"></div>`;
+
     mainContainer.innerHTML = "";
 
     const weatherObj = await getWeatherForcasts(latitude, longitude);
     mainContainer.innerHTML = `
     <div id="current-weather">
-        <h2 id="location">Jakarta Barat, Indonesia</h2>
+        <h2 id="location">${location}</h2>
         <p>${formatDate(weatherObj.time)}</p>
         <div id="weather">
             <div id="temperature">
