@@ -71,7 +71,7 @@ const handleForm = (event) => {
     );
 };
 
-const loadWeatherContent = async (latitude, longitude, location) => {
+export const loadWeatherContent = async (latitude, longitude, location) => {
     const mainContainer = document.querySelector(".main");
     mainContainer.innerHTML = `<div class="loader"></div>`;
 
